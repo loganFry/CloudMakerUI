@@ -1,0 +1,9 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+}
+
+.main-container-item {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
