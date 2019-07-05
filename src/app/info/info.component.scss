@@ -1,0 +1,36 @@
+#faq {
+    grid-area: faq;
+}
+
+#faq-pic {
+    grid-area: faq-pic;
+}
+
+#how-to {
+    grid-area: how-to;
+}
+
+#how-to-pic {
+    grid-area: how-to-pic;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    ". faq faq faq-pic ."
+    ". how-to-pic how-to how-to ."
+}
+
+.info-block {
+    margin: 0px 20px;
+    line-height: 30px;
+}
+
+.info-pic {
+    height: 200px;
+    width: 200px;
+    align-self: center;
+    justify-self: center;
+}

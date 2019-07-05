@@ -1,0 +1,30 @@
+#team-heading {
+    text-align: center;
+}
+
+.photos-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pic-container {
+    max-width: 150px;
+}
+
+.profile-pic {
+    width: 100%;
+}
+
+.pic-caption {
+    text-align: center;
+    font-weight: 700;
+    margin-block-end: 0em;
+}
+
+.pic-sub-caption {
+    margin-block-start: 0.25em;
+    text-align: center;
+    font-weight: 300;
+}
