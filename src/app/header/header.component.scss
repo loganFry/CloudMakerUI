@@ -1,0 +1,45 @@
+.header {
+    box-sizing: border-box;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#logo {
+    float: left;
+    padding: 0 10px;
+    height: 100%;
+}
+
+.links {
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+.links li {
+    list-style: none;
+    box-sizing: border-box;
+    height: 100%;
+    width: 10em;
+    float: left;
+    text-align: center;
+}
+
+.links li:hover {
+    background-color: white;
+}
+
+.links a {
+    display: inline-block;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+.links .active {
+    background-color: white;
+}

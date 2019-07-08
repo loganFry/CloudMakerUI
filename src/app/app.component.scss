@@ -1,4 +1,13 @@
+app-header {
+    position: fixed;
+    top: 0;
+    height: 70px;
+    width: 100%;
+}
+
 .main-container {
+    position: absolute;
+    top: 70px;
     display: grid;
     grid-template-columns: 10% auto 10%;
 }
