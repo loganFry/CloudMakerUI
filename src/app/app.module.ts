@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,8 @@ import { ResourcePanelComponent } from './resource-panel/resource-panel.componen
 import { HeaderComponent } from './header/header.component';
 import { InfoComponent } from './info/info.component';
 import { TeamMembersComponent } from './team-members/team-members.component';
+import { CreationButtonComponent } from './creation-button/creation-button.component';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +17,13 @@ import { TeamMembersComponent } from './team-members/team-members.component';
     ResourcePanelComponent,
     HeaderComponent,
     InfoComponent,
-    TeamMembersComponent
+    TeamMembersComponent,
+    CreationButtonComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
