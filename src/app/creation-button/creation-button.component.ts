@@ -15,7 +15,8 @@ export class CreationButtonComponent implements OnInit {
 
   CreateInstance(){
     console.log('clicked');
-    this.instanceService.createInstance('test@email.com', 'A12345', 'My test instance');
+    this.instanceService.createInstance('test@email.com', 'A12345', 'My test instance')
+    .subscribe(obj => console.log('Post returned:' + obj.toString()));
   }
 
 }
