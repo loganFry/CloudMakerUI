@@ -33,31 +33,20 @@ export class InstanceService {
   updateInstanceFile(instances: Instances, sha: string) : Observable<Object> {
     var customHeaders = this.createHeaders();
     var options = { headers : customHeaders };
+    // In order to submit file contents to github, we must first convert the
+    // updated instances object to a JSON string, and then encode it in Base64 with btoa()
+    var encodedFileContent: string = btoa(JSON.stringify(instances));
+    
     var body = {
       "message": "Adding new instance from frontend",
       "committer": {
         "name": "Cloudmaker Frontend",
         "email": "cloudmakerService@gmail.com"
       },
-      "content": btoa(JSON.stringify(instances)),
+      "content": encodedFileContent,
       "sha": sha
     };
     return this.http.put(this.apiUrl + 'repos/' + this.repoName + '/contents/' + this.instanceFileName, body, options);
-  }
-
-  createInstance(email : string, aid: string, instanceName: string) : Observable<Object> {
-    // Form variables into JSON object
-    var data = {
-      Email: email,
-      EmployeeID: aid,
-      InstanceName: instanceName
-    }
-
-    // Send data in a post request to cloud backend
-    return this.http.post('http://the_cloud_url', data)
-      .pipe(
-        catchError(this.handleError)
-      )
   }
 
   private handleError(error: HttpErrorResponse) {
