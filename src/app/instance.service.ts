@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { GithubFile } from './models/GithubFile';
+import { Instances } from './models/Instances';
 
 
 @Injectable({
@@ -9,7 +11,39 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class InstanceService {
 
+  private apiUrl : string = 'https://api.github.com/';
+  private accessToken : string = 'a3d61d20e9dcba66afc844f95c70fb374cb82a9a';
+  private repoName : string = 'loganFry/CloudMakerUI';
+  private instanceFileName : string = 'instances.json';
+
   constructor(private http: HttpClient) { }
+
+  private createHeaders() : HttpHeaders {
+    return new HttpHeaders({
+      'Authorization': 'token ' + this.accessToken
+    });
+  }
+
+  getInstanceFile() : Observable<GithubFile> {
+    var customHeaders = this.createHeaders();
+    var options = { headers : customHeaders };
+    return this.http.get<GithubFile>(this.apiUrl + 'repos/' + this.repoName + '/contents/' + this.instanceFileName, options);
+  }
+
+  updateInstanceFile(instances: Instances, sha: string) : Observable<Object> {
+    var customHeaders = this.createHeaders();
+    var options = { headers : customHeaders };
+    var body = {
+      "message": "Adding new instance from frontend",
+      "committer": {
+        "name": "Cloudmaker Frontend",
+        "email": "cloudmakerService@gmail.com"
+      },
+      "content": btoa(JSON.stringify(instances)),
+      "sha": sha
+    };
+    return this.http.put(this.apiUrl + 'repos/' + this.repoName + '/contents/' + this.instanceFileName, body, options);
+  }
 
   createInstance(email : string, aid: string, instanceName: string) : Observable<Object> {
     // Form variables into JSON object
