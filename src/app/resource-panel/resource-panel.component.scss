@@ -1,0 +1,22 @@
+#resource-panel {
+    border: black 3px solid;
+    width: 500px;
+    margin: 20px auto;
+}
+
+form {
+    display: grid;
+    padding: 10px 10px 0 10px;
+    grid-template-columns: 25% auto;
+    grid-row-gap: 5px;
+}
+
+form .label {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+form input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}

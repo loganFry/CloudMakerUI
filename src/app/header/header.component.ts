@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
               const current = document.getElementsByClassName('active');
               current[0].className = current[0].className.replace(' active', '');
               this.className += ' active';
+              window.scrollBy(0, 700);
           });
       }
   }
