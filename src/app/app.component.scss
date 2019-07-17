@@ -19,10 +19,7 @@ app-header {
     grid-column-end: 3;
 }
 
-
-:target::before {
-    content: "werserafqe wr ew wr wt gqrew trwf";
-    display: block;
-    height: 70px; /* fixed header height*/
-    margin: -70px 0 0; /* negative fixed header height */
+.filler {
+    height: 1000px;
 }
+

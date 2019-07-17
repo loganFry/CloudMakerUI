@@ -28,3 +28,13 @@
     text-align: center;
     font-weight: 300;
 }
+
+.anchor {
+    position: relative;
+}
+
+.anchor a {
+    position: absolute;
+    left: 0;
+    top: -70px;
+}
