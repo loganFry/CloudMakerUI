@@ -2,13 +2,14 @@ export class Instances {
     Instances: Instance[];
 }
 export class Instance {
-    Email: string;
-    EmployeeID: string;
-    InstanceName: string;
+    instance_name: string;
+    id: string;
+    email: string;
+    
     constructor(email: string, employeeId: string, instanceName: string){
-        this.Email = email;
-        this.EmployeeID = employeeId;
-        this.InstanceName = instanceName;
+        this.email = email;
+        this.id = employeeId;
+        this.instance_name = instanceName;
     }
 }
 

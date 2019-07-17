@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders } from '@angular/
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { GithubFile } from './models/GithubFile';
-import { Instances } from './models/Instances';
+import { Instances, Instance } from './models/Instances';
 
 
 @Injectable({
@@ -15,6 +15,7 @@ export class InstanceService {
   private accessToken : string = 'a3d61d20e9dcba66afc844f95c70fb374cb82a9a';
   private repoName : string = 'loganFry/CloudMakerUI';
   private instanceFileName : string = 'instances.json';
+  private instanceFolderName : string = 'Instances/'
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +37,7 @@ export class InstanceService {
     // In order to submit file contents to github, we must first convert the
     // updated instances object to a JSON string, and then encode it in Base64 with btoa()
     var encodedFileContent: string = btoa(JSON.stringify(instances));
-    
+
     var body = {
       "message": "Adding new instance from frontend",
       "committer": {
@@ -47,6 +48,22 @@ export class InstanceService {
       "sha": sha
     };
     return this.http.put(this.apiUrl + 'repos/' + this.repoName + '/contents/' + this.instanceFileName, body, options);
+  }
+
+  createNewInstanceFile(instances: Instance[]) : Observable<Object> {
+    var fileName : string = Date.now().toString() + '.json';
+    var encodedFileContent = btoa(JSON.stringify(instances));
+    var body = {
+      "message": "Adding new instance from frontend",
+      "committer": {
+        "name": "Cloudmaker Frontend",
+        "email": "cloudmakerService@gmail.com"
+      },
+      "content": encodedFileContent
+    };
+    var options = { headers: this.createHeaders()};
+
+    return this.http.put(this.apiUrl + 'repos/' + this.repoName + '/contents/' + this.instanceFolderName + fileName, body, options);
   }
 
   private handleError(error: HttpErrorResponse) {
