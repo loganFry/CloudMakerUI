@@ -6,12 +6,12 @@
         <span class="label">AID:</span>
         <input type="text" required name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
         <div class="validation-container" *ngIf="idInput.invalid && (idInput.dirty || idInput.touched)">
-            <p class="validation">AID is required</p>
+            <span class="validation">AID is required</span>
         </div>
         <span class="label">Email:</span>
         <input type="text" required name="email" [(ngModel)]="email" #emailInput="ngModel"> <br>
         <div class="validation-container" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-            <p class="validation">Email is required</p>
+            <span class="validation">Email is required</span>
         </div>
         <span class="label">Instance name:</span>
         <input type="text" required name="name" [(ngModel)]="instanceName" #nameInput="ngModel">

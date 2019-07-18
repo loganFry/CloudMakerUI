@@ -30,3 +30,12 @@ form input {
     left: 0;
     top: -70px;
 }
+
+.validation-container {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.validation {
+    color: darkred;
+}

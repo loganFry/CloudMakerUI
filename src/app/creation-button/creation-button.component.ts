@@ -23,11 +23,7 @@ export class CreationButtonComponent implements OnInit {
 
   CreateInstance(){
     console.log('Creating new instance...');
-    // make sure all properties have values before creating instance
-    if(!this.enabled){
-      return;
-    }
-
+    
     // Create new instance using user inputs
     var newInstance : Instance[] = [ new Instance(this.email, this.id, this.instanceName) ];
 
