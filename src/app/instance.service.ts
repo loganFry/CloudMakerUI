@@ -51,7 +51,10 @@ export class InstanceService {
   }
 
   createNewInstanceFile(instances: Instance[]) : Observable<Object> {
+    // files are named based on when they are submitted
     var fileName : string = Date.now().toString() + '.json';
+
+    // convert file to json string then encode in base64 to save to github
     var encodedFileContent = btoa(JSON.stringify(instances));
     var body = {
       "message": "Adding new instance from frontend",
