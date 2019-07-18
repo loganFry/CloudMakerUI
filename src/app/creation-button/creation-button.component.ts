@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {InstanceService} from '../instance.service';
 import { GithubFile } from '../models/GithubFile';
 import { Instances, Instance } from '../models/Instances';
@@ -14,6 +14,7 @@ export class CreationButtonComponent implements OnInit {
   @Input() email : string;
   @Input() id : string;
   @Input() instanceName : string;
+  @Input() enabled : boolean;
 
   constructor(private instanceService : InstanceService) { }
 
@@ -22,12 +23,11 @@ export class CreationButtonComponent implements OnInit {
 
   CreateInstance(){
     console.log('Creating new instance...');
-    // temporarily assign defaults
-    if(!this.email && !this.id && !this.instanceName){
-      this.email = 'logan_r_fry@progressive.com';
-      this.id = 'A133777';
-      this.instanceName = 'test instance';
+    // make sure all properties have values before creating instance
+    if(!this.enabled){
+      return;
     }
+
     // Create new instance using user inputs
     var newInstance : Instance[] = [ new Instance(this.email, this.id, this.instanceName) ];
 

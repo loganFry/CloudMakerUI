@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourcePanelComponent implements OnInit {
 
+  aid : string;
+  email: string;
+  instanceName: string;
+
   constructor() { }
 
   ngOnInit() {

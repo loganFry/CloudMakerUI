@@ -1,14 +1,23 @@
 <div class="anchor">
     <a name="panel-target">&nbsp;</a>
-</div>
-<div id="resource-panel">
-    <form>
-        <span class="label">aID:</span>
-        <input type="text" name="aid"> <br>
+  </div>
+  <div id="resource-panel">
+    <form #instanceForm="ngForm">
+        <span class="label">AID:</span>
+        <input type="text" required name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
+        <div class="validation-container" *ngIf="idInput.invalid && (idInput.dirty || idInput.touched)">
+            <p class="validation">AID is required</p>
+        </div>
         <span class="label">Email:</span>
-        <input type="text" name="email"> <br>
+        <input type="text" required name="email" [(ngModel)]="email" #emailInput="ngModel"> <br>
+        <div class="validation-container" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+            <p class="validation">Email is required</p>
+        </div>
         <span class="label">Instance name:</span>
-        <input type="text" name="name">
+        <input type="text" required name="name" [(ngModel)]="instanceName" #nameInput="ngModel">
+        <div class="validation-container" *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)">
+            <span class="validation">Instance name is required</span>
+        </div>
     </form>
-    <app-creation-button></app-creation-button>
-</div>
+    <app-creation-button [enabled]="instanceForm.valid" [id]="aid" [email]="email" [instanceName]="instanceName"></app-creation-button>
+  </div>
