@@ -13,7 +13,7 @@ RUN npm run build -- --prod
 FROM node:10.16-alpine as cloud-ui
 WORKDIR /app
 COPY --from=node-angular-cli /app/dist/cloud-ui .
-EXPOSE 80
-ENV PORT 80
-RUN npm install http-server -g
+EXPOSE 8080
+ENV PORT 8080
+RUN npm install -g http-server
 CMD [ "http-server" ]
