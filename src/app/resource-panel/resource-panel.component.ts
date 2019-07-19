@@ -11,15 +11,23 @@ export class ResourcePanelComponent implements OnInit {
   email: string;
   instanceName: string;
 
+  validationAnimationId: number;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  transitionPanel() {
-    console.log("button clicked baby");
-    document.getElementById("resource-panel").style.display = "none";
-    document.getElementById("panel-creating").style.display = "block";
+  showValidatingMessage()
+  {
+      document.getElementById("panel-message").style.display = "block";
+      this.validationAnimationId = this.animateMessageInPanel("Validating your request");
+  }
+
+  showCreatingMessage() {
+    clearInterval(this.validationAnimationId);
+    (document.getElementById("instance-form") as any).reset();
+    this.animateMessageInPanel("Creating your instance");
   }
 
   returnToForm() {
@@ -28,5 +36,16 @@ export class ResourcePanelComponent implements OnInit {
     this.aid = '';
     this.email = '';
     this.instanceName = '';
+
+  }
+  animateMessageInPanel(message: string) {
+      let messageElement = document.getElementById("panel-message");
+      messageElement.innerText = message;
+
+      let i = 0;
+      return setInterval(function() {
+          i = ++i % 4;
+          messageElement.innerText = message + Array(i+1).join(".");
+      }, 800);
   }
 }

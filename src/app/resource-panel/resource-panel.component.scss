@@ -42,12 +42,14 @@ form input {
     color: darkred;
 }
 
-#panel-creating {
+#panel-message {
     display: none;
     border: black 3px solid;
     width: 500px;
     margin: 20px auto;
     padding: 0px 20px 20px 20px;
+    text-align: center;
+    margin-top: 0;
 }
 
 #creating-message {
