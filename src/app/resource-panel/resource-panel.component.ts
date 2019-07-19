@@ -22,5 +22,11 @@ export class ResourcePanelComponent implements OnInit {
     document.getElementById("panel-creating").style.display = "block";
   }
 
-
+  returnToForm() {
+    document.getElementById("resource-panel").style.display = "block";
+    document.getElementById("panel-creating").style.display = "none";
+    this.aid = '';
+    this.email = '';
+    this.instanceName = '';
+  }
 }
