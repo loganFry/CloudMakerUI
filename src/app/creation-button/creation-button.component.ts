@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {InstanceService} from '../instance.service';
 import { GithubFile } from '../models/GithubFile';
 import { Instances, Instance } from '../models/Instances';
@@ -16,6 +16,9 @@ export class CreationButtonComponent implements OnInit {
   @Input() instanceName : string;
   @Input() enabled : boolean;
 
+  // Event emitter to notify resource panel component
+  @Output() formSubmitted = new EventEmitter();
+
   constructor(private instanceService : InstanceService) { }
 
   ngOnInit() {
@@ -23,6 +26,8 @@ export class CreationButtonComponent implements OnInit {
 
   CreateInstance(){
     console.log('Creating new instance...');
+
+    this.formSubmitted.emit();
     
     // Create new instance using user inputs
     var newInstance : Instance[] = [ new Instance(this.email, this.id, this.instanceName) ];

@@ -16,4 +16,11 @@ export class ResourcePanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  transitionPanel() {
+    console.log("button clicked baby");
+    let resourcePanel = document.getElementById("resource-panel");
+    resourcePanel.style.display = "none";
+  }
+
+
 }

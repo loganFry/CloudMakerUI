@@ -19,5 +19,9 @@
             <span class="validation">Instance name is required</span>
         </div>
     </form>
-    <app-creation-button [enabled]="instanceForm.valid" [id]="aid" [email]="email" [instanceName]="instanceName"></app-creation-button>
+    <app-creation-button
+        [enabled]="instanceForm.valid"
+        [id]="aid" [email]="email" [instanceName]="instanceName"
+        (formSubmitted)="transitionPanel()">
+    </app-creation-button>
   </div>
