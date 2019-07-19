@@ -16,8 +16,9 @@ export class CreationButtonComponent implements OnInit {
   @Input() instanceName : string;
   @Input() enabled : boolean;
 
-  // Event emitter to notify resource panel component
+  // To notify resource panel component about current instance creation state
   @Output() formSubmitted = new EventEmitter();
+  @Output() requestSuccessful = new EventEmitter();
 
   error: string;
 
@@ -26,7 +27,7 @@ export class CreationButtonComponent implements OnInit {
   ngOnInit() {
   }
 
-  CreateInstance(){
+  CreateInstance() {
     // Check validation of form before doing anything
     if(!this.enabled){
       this.error = "Must complete form before creating instance";
@@ -35,6 +36,8 @@ export class CreationButtonComponent implements OnInit {
     else {
       this.error = undefined;
       console.log("Form valid, trying to create instance")
+      // Notify the resource panel that the form is being submitted
+      this.formSubmitted.emit();
 
       var newInstance : Instance[] = [ new Instance(this.email, this.id, this.instanceName) ];
 
@@ -43,7 +46,7 @@ export class CreationButtonComponent implements OnInit {
         // If we get into this handler, the instance was submitted to github successfully
 
         // Notify the resource panel that the form was successfully submitted
-        this.formSubmitted.emit();
+        this.requestSuccessful.emit();
         this.error = undefined;
         console.log('Created new instance file: ');
         console.log(data);

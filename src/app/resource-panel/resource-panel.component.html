@@ -2,7 +2,7 @@
     <a name="panel-target">&nbsp;</a>
   </div>
 <div id="resource-panel">
-    <form #instanceForm="ngForm">
+    <form #instanceForm="ngForm" id="instance-form">
         <span class="label">AID:</span>
         <input type="text" required name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
         <div class="validation-container" *ngIf="idInput.invalid && (idInput.dirty || idInput.touched)">
@@ -22,10 +22,8 @@
     <app-creation-button
     [enabled]="instanceForm.valid"
     [id]="aid" [email]="email" [instanceName]="instanceName"
-    (formSubmitted)="transitionPanel()">
+    (formSubmitted)="showValidatingMessage()"
+    (requestSuccessful)="showCreatingMessage()">
     </app-creation-button>
-</div>
-<div id="panel-creating">
-    Creating instance {{instanceName}}...
-
+    <p id="panel-message"></p>
 </div>
