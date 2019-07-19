@@ -18,8 +18,8 @@ export class ResourcePanelComponent implements OnInit {
 
   transitionPanel() {
     console.log("button clicked baby");
-    let resourcePanel = document.getElementById("resource-panel");
-    resourcePanel.style.display = "none";
+    document.getElementById("resource-panel").style.display = "none";
+    document.getElementById("panel-creating").style.display = "block";
   }
 
 

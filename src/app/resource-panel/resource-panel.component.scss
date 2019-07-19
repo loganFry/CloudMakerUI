@@ -39,3 +39,10 @@ form input {
 .validation {
     color: darkred;
 }
+
+#panel-creating {
+    display: none;
+    border: black 3px solid;
+    width: 500px;
+    margin: 20px auto;
+}

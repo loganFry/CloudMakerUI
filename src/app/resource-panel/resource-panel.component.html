@@ -1,7 +1,7 @@
 <div class="anchor">
     <a name="panel-target">&nbsp;</a>
   </div>
-  <div id="resource-panel">
+<div id="resource-panel">
     <form #instanceForm="ngForm">
         <span class="label">AID:</span>
         <input type="text" required name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
@@ -20,8 +20,12 @@
         </div>
     </form>
     <app-creation-button
-        [enabled]="instanceForm.valid"
-        [id]="aid" [email]="email" [instanceName]="instanceName"
-        (formSubmitted)="transitionPanel()">
+    [enabled]="instanceForm.valid"
+    [id]="aid" [email]="email" [instanceName]="instanceName"
+    (formSubmitted)="transitionPanel()">
     </app-creation-button>
-  </div>
+</div>
+<div id="panel-creating">
+    Creating instance {{instanceName}}...
+
+</div>
