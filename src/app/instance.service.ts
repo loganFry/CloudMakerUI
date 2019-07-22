@@ -31,14 +31,14 @@ export class InstanceService {
     var body = {
       "message": "Adding new instance from frontend",
       "committer": {
-        "name": "Cloudmaker Frontend",
-        "email": "cloudmakerService@gmail.com"
+        "name": environment.comitterName,
+        "email": environment.comitterEmail
       },
       "content": encodedFileContent
     };
     var options = { headers: this.createHeaders()};
 
-    return this.http.put(this.apiUrl + 'repos/' + environment.instanceRepo + '/contents/' + environment.instanceFolderName + '/' + fileName, 
+    return this.http.put(environment.contentUrl + fileName, 
       body, 
       options);
   }
