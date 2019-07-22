@@ -45,3 +45,48 @@
 #links .active {
     background-color: white;
 }
+
+#links li.icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    #links li:not(:last-child) {
+        display: none;
+    }
+
+    #links li.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :host(app-header) {
+        position: relative;
+    }
+
+    #header.responsive li {
+        float: none;
+        display: block;
+        width: auto;
+        position: relative;
+        top: 70px;
+        height: 30px;
+    }
+
+    #header.responsive a {
+        height: 30px;
+    }
+
+    #header.responsive li:first-child a{
+        position: relative;
+        top: -70px;
+    }
+
+    #header.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

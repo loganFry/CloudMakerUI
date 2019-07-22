@@ -1,7 +1,11 @@
 #resource-panel {
-    border: black 3px solid;
+    //border: black 2px solid;
     width: 500px;
     margin: 20px auto;
+
+    border-radius: 3px;
+    box-shadow:  0 0 3px 5px #bcc0c4;
+
 }
 
 form {
