@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  instanceRepo: 'loganFry/CloudMakerUI',
-  instanceFolderName: 'FE_Queue',
-  githubAccessToken: 'a3d61d20e9dcba66afc844f95c70fb374cb82a9a'
+  githubAccessToken: 'a3d61d20e9dcba66afc844f95c70fb374cb82a9a',
+  contentUrl: 'https://api.github.com/repos/loganFry/CloudMakerUI/contents/FE_Queue/',
+  comitterName: 'Cloudmaker Frontend',
+  comitterEmail: 'cloudmakerService@gmail.com'
 };
 
 /*
