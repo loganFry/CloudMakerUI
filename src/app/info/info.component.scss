@@ -1,9 +1,15 @@
+$break-small: 850px; 
+$break-large : 2000px;
+
 #faq {
-    grid-area: faq;
+    grid-area: faq;    
 }
 
 #faq-pic {
     grid-area: faq-pic;
+    @media (max-width: $break-small) {
+        display: none;
+    }
 }
 
 #how-to {
@@ -12,6 +18,9 @@
 
 #how-to-pic {
     grid-area: how-to-pic;
+    @media (max-width: $break-small) {
+        display: none;
+    }
 }
 
 .info-container {
@@ -20,7 +29,16 @@
     grid-template-rows: auto;
     grid-template-areas: 
     ". faq faq faq-pic ."
-    ". how-to-pic how-to how-to ."
+    ". how-to-pic how-to how-to .";
+    @media (max-width: $break-small) {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "faq"
+        "how-to";
+    }
+    @media (min-width: $break-large) {
+        grid-template-columns: 20% 1fr 1fr 1fr 20%;        
+    }
 }
 
 .info-block {
