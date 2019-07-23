@@ -7,6 +7,6 @@ export const environment = {
   instanceFolderName: 'FE_Queue',
   githubAccessToken: '2cec389a68301f32886037deac6a69124b69074f',
   contentUrl: 'https://api.github.com/orgs/progressive/repos/clo-cloud-maker/contents/FE_Queue/',
-  comitterName: 'Robbie J Barnes',
-  comitterEmail: 'ROBBIE_J_BARNES@progressive.com'
+  comitterName: 'Griffin J Saiia',
+  comitterEmail: 'Griffin_J_Saiia@progressive.com'
 };
