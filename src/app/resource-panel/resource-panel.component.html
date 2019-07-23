@@ -14,9 +14,14 @@
             <span class="validation">Email is required</span>
         </div>
         <span class="label">Instance name:</span>
-        <input type="text" required name="name" [(ngModel)]="instanceName" #nameInput="ngModel">
+        <input type="text" required pattern="^[a-zA-Z0-9_-]*$" name="name" [(ngModel)]="instanceName" #nameInput="ngModel">
         <div class="validation-container" *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)">
-            <span class="validation">Instance name is required</span>
+            <span *ngIf="nameInput.errors.required" class="validation">Instance name is required</span>
+            <ul *ngIf="nameInput.errors.pattern" class="validation">Instance name can only contain the following character groups:
+                <li>Uppercase or lowercase letters</li>
+                <li>Numbers</li>
+                <li>Dashes or underscores</li>
+            </ul>
         </div>
     </form>
     <app-creation-button
