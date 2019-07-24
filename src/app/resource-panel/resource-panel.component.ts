@@ -11,7 +11,8 @@ export class ResourcePanelComponent implements OnInit {
   email: string;
   instanceName: string;
 
-  validationAnimationId: number;
+  timerId: number;
+  creating: boolean;
 
   constructor() { }
 
@@ -20,14 +21,21 @@ export class ResourcePanelComponent implements OnInit {
 
   showValidatingMessage()
   {
-      document.getElementById("panel-message").style.display = "block";
-      this.validationAnimationId = this.animateMessageInPanel("Validating your request");
+    if(this.timerId){
+      clearInterval(this.timerId);
+    }
+    this.creating = false;
+    document.getElementById("panel-creating").style.display = "block";
+    this.timerId = this.animateMessageInPanel("Validating your request");
   }
 
   showCreatingMessage() {
-    clearInterval(this.validationAnimationId);
+    if(this.timerId){
+      clearInterval(this.timerId);
+    }
+    this.creating = true;
     (document.getElementById("instance-form") as any).reset();
-    this.animateMessageInPanel("Creating your instance");
+    this.timerId = this.animateMessageInPanel("Creating your instance");
   }
 
   returnToForm() {
