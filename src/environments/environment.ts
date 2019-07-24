@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  githubAccessToken: '387813f2c0d9a4ef27d007921e06b19cac36d4ac',
+  githubAccessToken: '560f117bfdde5d6200bee590219a0b9e02cee2dc',
   contentUrl: 'https://api.github.com/repos/loganFry/CloudMakerUI/contents/FE_Queue/',
   comitterName: 'Cloudmaker Frontend',
   comitterEmail: 'cloudmakerService@gmail.com'
