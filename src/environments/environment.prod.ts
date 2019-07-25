@@ -7,6 +7,7 @@ export const environment = {
   instanceFolderName: 'FE_Queue',
   githubAccessToken: '2cec389a68301f32886037deac6a69124b69074f',
   contentUrl: 'https://githubprod.prci.com/api/v3/repos/progressive/clo-cloud-maker/contents/FE_Queue/',
+  destroyUrl: 'https://githubprod.prci.com/api/v3/repos/progressive/clo-ec2-assassin/contents/SD_Queue/',
   comitterName: 'Griffin J Saiia',
   comitterEmail: 'Griffin_J_Saiia@progressive.com'
 };

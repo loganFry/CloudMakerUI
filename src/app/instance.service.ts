@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { GithubFile } from './models/GithubFile';
 import { Instances, Instance } from './models/Instances';
+import { Destroy } from './models/Destroy';
 import { environment } from '../environments/environment';
 
 
@@ -41,6 +42,23 @@ export class InstanceService {
     return this.http.put(environment.contentUrl + fileName, 
       body, 
       options);
+  }
+
+  destroyInstance(destroy: Destroy[]) : Observable<Object> {
+    var fileName : string = Date.now().toString() + '.json';
+    var encodedFileContent = btoa(JSON.stringify(destroy));
+    var body = {
+      "message": "Deleting instance from frontend",
+      "committer": {
+        "name": environment.comitterName,
+        "email": environment.comitterEmail
+      },
+      "content": encodedFileContent
+    };
+    var options = { headers: this.createHeaders()};
+
+
+    return this.http.put(environment.destroyUrl + fileName, body, options);
   }
 
   private handleError(error: HttpErrorResponse) {
