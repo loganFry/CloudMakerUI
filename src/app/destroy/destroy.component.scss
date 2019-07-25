@@ -3,6 +3,7 @@
     top: 70px;
     display: grid;
     grid-template-columns: 10% auto 10%;
+    width: 100%;
 }
 
 .main-container-item {
@@ -36,4 +37,17 @@
 
 .logo {
     height: 150px;
+}
+
+.destroy-container {
+    grid-column: 2;
+    width: 300px;
+    margin: 20px auto;
+    border-radius: 3px;
+    box-shadow:  0 0 3px 5px #bcc0c4;
+}
+
+#destroy-btn {
+    display: block;
+    margin: auto;
 }
