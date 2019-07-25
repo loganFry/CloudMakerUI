@@ -52,12 +52,12 @@ export class ResourcePanelComponent implements OnInit {
     this.instanceName = '';
 
   }
-  animateMessageInPanel(message: string) {
+  animateMessageInPanel(message: string) : number {
       let messageElement = document.getElementById("panel-message");
       messageElement.innerText = message;
 
       let i = 0;
-      return setInterval(function() {
+      return window.setInterval(function() {
           i = ++i % 4;
           messageElement.innerText = message + Array(i+1).join(".");
       }, 800);

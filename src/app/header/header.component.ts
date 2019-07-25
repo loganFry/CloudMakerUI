@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectLink(event: KeyboardEvent){
+  selectLink(event: any){
     this.currentSelected = event.target.innerText;
   }
 
