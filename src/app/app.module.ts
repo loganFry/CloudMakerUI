@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { InfoComponent } from './info/info.component';
 import { TeamMembersComponent } from './team-members/team-members.component';
 import { CreationButtonComponent } from './creation-button/creation-button.component';
+import { HomeComponent } from './home/home.component';
+import { DestroyComponent } from './destroy/destroy.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { CreationButtonComponent } from './creation-button/creation-button.compo
     HeaderComponent,
     InfoComponent,
     TeamMembersComponent,
-    CreationButtonComponent
+    CreationButtonComponent,
+    HomeComponent,
+    DestroyComponent
   ],
   imports: [
     BrowserModule,

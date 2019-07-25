@@ -6,15 +6,18 @@
     <div id="links">
         <a class="link" (click)="selectLink($event)" 
             [ngClass]="{ 'current-link': currentSelected === 'Create' }" 
-            href="#panel-target">Create</a>
+            [routerLink]="['home']" fragment="panel-target">Create</a>
         <a class="link" (click)="selectLink($event)"
         [ngClass]="{ 'current-link': currentSelected === 'FAQ' }"         
-        href="#faq-target">FAQ</a>
+        [routerLink]="['home']" fragment="faq-target" >FAQ</a>
         <a class="link" (click)="selectLink($event)"
         [ngClass]="{ 'current-link': currentSelected === 'How To' }"                 
-        href="#howto-target">How To</a>
+        [routerLink]="['home']" fragment="howto-target">How To</a>
         <a class="link" (click)="selectLink($event)"
         [ngClass]="{ 'current-link': currentSelected === 'Team' }"                 
-        href="#team-target">Team</a>
+        [routerLink]="['home']" fragment="team-target">Team</a>
+        <a class="link" (click)="selectLink($event)"
+        [ngClass]="{ 'current-link': currentSelected === 'Destroy' }"                 
+        routerLink="/destroy">Destroy</a>
     </div>
 </div>

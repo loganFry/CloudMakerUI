@@ -1,0 +1,39 @@
+.main-container {
+    position: absolute;
+    top: 70px;
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+}
+
+.main-container-item {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.filler {
+    height: 1000px;
+}
+
+.title-container {
+    margin: 20px auto 0px auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title {
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+.subtitle {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 200;
+    width: 100px;
+}
+
+.logo {
+    height: 150px;
+}
