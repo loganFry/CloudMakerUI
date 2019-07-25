@@ -30,7 +30,9 @@ export class ResourcePanelComponent implements OnInit {
     if(this.timerId){
       clearInterval(this.timerId);
     }
+
     this.creating = false;
+    document.getElementById("resource-panel").style.display = "none";
     document.getElementById("panel-creating").style.display = "block";
     this.timerId = this.animateMessageInPanel("Validating your request");
   }
@@ -39,19 +41,33 @@ export class ResourcePanelComponent implements OnInit {
     if(this.timerId){
       clearInterval(this.timerId);
     }
+
     this.creating = true;
     (document.getElementById("instance-form") as any).reset();
     this.timerId = this.animateMessageInPanel("Creating your instance");
   }
 
-  returnToForm() {
-    document.getElementById("resource-panel").style.display = "block";
-    document.getElementById("panel-creating").style.display = "none";
-    this.aid = '';
-    this.email = '';
-    this.instanceName = '';
 
+  showErrorMessage()
+  {
+      console.log("triggered");
+      if(this.timerId){
+          clearInterval(this.timerId);
+      }
+
+      document.getElementById("panel-message").innerText = "Error creating instance";
+      document.getElementById("panel-message").style.color = "darkred";
   }
+
+  resetPanel() {
+      document.getElementById("resource-panel").style.display = "block";
+      document.getElementById("panel-creating").style.display = "none";
+      document.getElementById("panel-message").style.color = "black";
+      if(this.timerId){
+          clearInterval(this.timerId);
+      }
+  }
+
   animateMessageInPanel(message: string) : number {
       let messageElement = document.getElementById("panel-message");
       messageElement.innerText = message;

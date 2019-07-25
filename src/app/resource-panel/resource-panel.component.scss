@@ -1,5 +1,4 @@
-#resource-panel {
-    //border: black 2px solid;
+.panel {
     width: 500px;
     margin: 20px auto;
 
@@ -26,6 +25,7 @@ form input {
     grid-column-end: 3;
     border: 2px solid grey;
     border-radius: 5px;
+    height: 21px;
 }
 
 .anchor {
@@ -45,16 +45,13 @@ form input {
 
 .validation {
     color: darkred;
+    margin-top: 0;
 }
 
 #panel-creating {
     display: none;
-    border: black 3px solid;
-    width: 500px;
-    margin: 20px auto;
-    padding: 0px 20px 20px 20px;
     text-align: center;
-    margin-top: 0;
+    padding: 8px 0 16px 0;
 }
 
 #creating-message {

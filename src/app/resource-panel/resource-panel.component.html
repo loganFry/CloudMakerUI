@@ -1,7 +1,7 @@
 <div class="anchor">
     <a name="panel-target">&nbsp;</a>
   </div>
-<div id="resource-panel">
+<div id="resource-panel" class="panel">
     <form #instanceForm="ngForm" id="instance-form" (keyup.enter)="Button.CreateInstance()">
         <span class="label">AID or First Inital + Last Name:</span>
         <input type="text" required pattern="^[a-zA-Z0-9_-]*$" name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
@@ -34,10 +34,12 @@
     [enabled]="instanceForm.valid"
     [id]="aid" [email]="email" [instanceName]="instanceName"
     (formSubmitted)="showValidatingMessage()"
-    (requestSuccessful)="showCreatingMessage()">
+    (requestSuccessful)="showCreatingMessage()"
+    (requestFailed)="showErrorMessage()">
     </app-creation-button>
 </div>
-<div id="panel-creating">
+<div id="panel-creating" class="panel">
     <p id="panel-message"></p>
     <p *ngIf="creating">You will receive an email with further details once your instance is created!</p>
+    <button class="reset-button" id="reset-button" (click)="resetPanel()">Back to form</button>
 </div>

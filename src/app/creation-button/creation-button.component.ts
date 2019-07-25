@@ -19,6 +19,7 @@ export class CreationButtonComponent implements OnInit {
   // To notify resource panel component about current instance creation state
   @Output() formSubmitted = new EventEmitter();
   @Output() requestSuccessful = new EventEmitter();
+  @Output() requestFailed = new EventEmitter();
 
   error: string;
 
@@ -52,7 +53,7 @@ export class CreationButtonComponent implements OnInit {
         console.log(data);
       }, (githubError) => {
         // If we get into this handler, there was an error pushing to github
-
+        this.requestFailed.emit();
         this.error = "There was an error creating the instance"
         console.error("Error creating instance: ")
         console.error(githubError);
