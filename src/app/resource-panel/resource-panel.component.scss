@@ -13,6 +13,7 @@ form {
     padding: 10px 10px 0 10px;
     grid-template-columns: 25% auto;
     grid-row-gap: 5px;
+    grid-column-gap: 10px;
 }
 
 form .label {
@@ -60,6 +61,11 @@ form input {
     text-align: center;
     color: #0b9c3e;
     margin-block-start: 0.55em;
+}
+
+#aid-label p {
+    margin-block-start: 0em;
+    margin-block-end: 0.25em;
 }
 
 .reset-button {

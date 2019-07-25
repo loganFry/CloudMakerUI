@@ -2,16 +2,22 @@
     <a name="panel-target">&nbsp;</a>
   </div>
 <div id="resource-panel">
-    <form #instanceForm="ngForm" id="instance-form">
-        <span class="label">AID:</span>
-        <input type="text" required name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
+    <form #instanceForm="ngForm" id="instance-form" (keyup.enter)="Button.CreateInstance()">
+        <span class="label">AID or First Inital + Last Name:</span>
+        <input type="text" required pattern="^[a-zA-Z0-9_-]*$" name="aid" [(ngModel)]="aid" #idInput="ngModel">  <br>
         <div class="validation-container" *ngIf="idInput.invalid && (idInput.dirty || idInput.touched)">
-            <span class="validation">AID is required</span>
+            <span *ngIf="idInput.errors.required" class="validation">AID or First Initial + Last Name is required</span>
+            <ul *ngIf="idInput.errors.pattern" class="validation">AID or First Initial + Last Name can only contain the following character groups:
+                <li>Uppercase or lowercase letters</li>
+                <li>Numbers</li>
+                <li>Dashes or underscores</li>
+            </ul>
         </div>
         <span class="label">Email:</span>
-        <input type="text" required name="email" [(ngModel)]="email" #emailInput="ngModel"> <br>
+        <input type="email" email required name="email" [(ngModel)]="email" #emailInput="ngModel"> <br>
         <div class="validation-container" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-            <span class="validation">Email is required</span>
+            <span *ngIf="emailInput.errors.required" class="validation">Email is required</span>
+            <span *ngIf="emailInput.errors.email" class="validation">Email must be a valid format</span>
         </div>
         <span class="label">Instance name:</span>
         <input type="text" required pattern="^[a-zA-Z0-9_-]*$" name="name" [(ngModel)]="instanceName" #nameInput="ngModel">

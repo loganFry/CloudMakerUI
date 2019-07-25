@@ -27,7 +27,7 @@ export class CreationButtonComponent implements OnInit {
   ngOnInit() {
   }
 
-  CreateInstance() {
+  public CreateInstance() {
     // Check validation of form before doing anything
     if(!this.enabled){
       this.error = "Must complete form before creating instance";

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CreationButtonComponent } from '../creation-button/creation-button.component';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-resource-panel',
@@ -6,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resource-panel.component.scss']
 })
 export class ResourcePanelComponent implements OnInit {
+
+  // Add a reference to the creation button so that we can call the
+  // CreateInstance() function when the user presses Enter in the form
+  @ViewChild(CreationButtonComponent, { static: false }) Button;
 
   aid : string;
   email: string;
